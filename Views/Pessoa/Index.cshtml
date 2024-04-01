@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Pessoa>
+
+@{
+    ViewData["Title"] = "Pessoas";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Cadastro de Pessoas</h1>
+        </div>
+        <div class="col-md-6">
+            <table class="table table-bordered mt-4">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Detalhes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var pessoa in Model)
+                    {
+                        <tr>
+                            <td>@pessoa.Id</td>
+                            <td>@pessoa.Nome</td>
+                            <td>
+                                <a href="#" class="btn btn-primary btn-sm">Detalhes</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="text-center mt-12">
+                <a href="@Url.Action("Editar", "Pessoa")" class="btn btn-success">Adicionar Nova Pessoa</a>
+            </div>
+        </div>
+        <div class="col-6">
+            <img src="~/images/pessoas.jpg" width="80%" class="img-fluid" alt="Casal se cumprimentando">
+        </div>
+        <div class="col-md-4 image-container"></div>
+    </div>
+</div>
